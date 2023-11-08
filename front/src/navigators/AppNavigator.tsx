@@ -3,14 +3,19 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {navigationRef} from './utils';
 import {SCREENS} from './screens';
-import {Login} from '../screens/Login';
+import {Auth} from '../screens/Authentication/Auth';
 
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
   return (
-    <Stack.Navigator initialRouteName={SCREENS.LOGIN}>
-      <Stack.Screen name={SCREENS.LOGIN} component={Login} />
+    <Stack.Navigator initialRouteName={SCREENS.SIGNUP}>
+      <Stack.Screen name={SCREENS.SIGNUP} options={{title: 'Sign up'}}>
+        {() => <Auth authMode="Sign up" />}
+      </Stack.Screen>
+      <Stack.Screen name={SCREENS.SIGNIN} options={{title: 'Sign in'}}>
+        {() => <Auth authMode="Sign in" />}
+      </Stack.Screen>
     </Stack.Navigator>
   );
 };
