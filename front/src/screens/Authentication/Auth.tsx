@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {TextInput, TouchableOpacity, View, Text} from 'react-native';
 import axios from 'axios';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {setEmail, setJwtTokens, setId} from '../../redux/auth/authSlice';
 import styles from './auth.styles';
 import {useAppDispatch} from '../../redux/hooks';
@@ -29,13 +28,16 @@ export const Auth: React.FC<AuthProps> = ({authMode}) => {
       .then(res => {
         setJwtTokens(res.data.authToken);
         setId(res.data.data.id);
+        navigation.navigate(SCREENS.MAIN as never);
       })
       .catch(e => console.error(e));
   };
 
   const handleSwitch = () => {
     navigation.navigate(
-      authMode === 'Sign up' ? SCREENS.SIGNIN : SCREENS.SIGNUP,
+      authMode === 'Sign up'
+        ? (SCREENS.SIGNIN as never)
+        : (SCREENS.SIGNUP as never),
     );
   };
 

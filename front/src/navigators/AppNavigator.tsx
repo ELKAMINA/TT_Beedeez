@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {navigationRef} from './utils';
 import {SCREENS} from './screens';
 import {Auth} from '../screens/Authentication/Auth';
+import {Main} from '../screens/Main/Main';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ const AppStack = () => {
       <Stack.Screen name={SCREENS.SIGNIN} options={{title: 'Sign in'}}>
         {() => <Auth authMode="Sign in" />}
       </Stack.Screen>
+      <Stack.Screen name={SCREENS.MAIN} component={Main} />
     </Stack.Navigator>
   );
 };
