@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
+    width: '40%',
+    height: '5%',
   },
   logoContainer: {
     width: 50,
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     height: '70%',
   },
   textContainer: {
-    flex: 1,
+    // flex: 1,
     marginHorizontal: SIZES.medium,
   },
   stationName: {

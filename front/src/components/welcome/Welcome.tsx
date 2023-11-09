@@ -21,7 +21,7 @@ const getTabTextStyle = (activeButton: string, item: string) => ({
 });
 
 export const Welcome = () => {
-  const [activeButton, setActiveButton] = useState<string>('Available');
+  const [activeButton, setActiveButton] = useState<string>('All');
   const user = useAppSelector(selectCurrentUser);
   return (
     <View>

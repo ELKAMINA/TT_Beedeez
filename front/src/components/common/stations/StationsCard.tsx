@@ -10,11 +10,18 @@ interface Props {
 export const StationsCard: React.FC<Props> = ({station}) => {
   return (
     <TouchableOpacity style={styles.container}>
-      <TouchableOpacity style={styles.logoContainer} />
       <View style={styles.textContainer}>
+        <Text style={styles.stationName}>{station.name}</Text>
         <Text style={styles.stationName} numberOfLines={1} />
         {station.numBikesAvailable}
-        <Text style={styles.stationType} />
+        <Text style={styles.stationType}>
+          {' '}
+          Last update : {String(station.updatedAt)}
+        </Text>
+        <Text style={styles.stationType}>
+          {' '}
+          Type : {station.num_bikes_available_types.at(0)?.mechanical}
+        </Text>
       </View>
     </TouchableOpacity>
   );

@@ -6,7 +6,6 @@ import styles from './auth.styles';
 import {useAppDispatch} from '../../redux/hooks';
 import {useNavigation} from '@react-navigation/native';
 import {SCREENS} from '../../navigators/screens';
-
 type AuthProps = {
   authMode: 'Sign in' | 'Sign up';
 };

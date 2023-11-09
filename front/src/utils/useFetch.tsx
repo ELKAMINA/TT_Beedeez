@@ -1,21 +1,19 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-catch-shadow */
 import {useState, useEffect} from 'react';
+import {Station} from '../components/list-stations/interface/station.interface';
 import axios, {AxiosRequestConfig, AxiosResponse, AxiosError} from 'axios';
-
 type QueryParams = Record<string, any>;
 
-interface UseFetchReturnType<T> {
-  data: T[];
+interface UseFetchReturnType {
+  data: Station[]; // The data is always an array of Station
   isLoading: boolean;
   error: AxiosError | null;
   refetch: () => void;
 }
 
-// Define the hook with generics
-const useFetch = <T,>(
-  endpoint: string,
-  query: QueryParams,
-): UseFetchReturnType<T> => {
-  const [data, setData] = useState<T>({} as T); // Initialize data with a generic type
+const useFetch = (endpoint: string, query: QueryParams): UseFetchReturnType => {
+  const [data, setData] = useState<Station[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<AxiosError | null>(null);
 
@@ -28,12 +26,12 @@ const useFetch = <T,>(
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const response: AxiosResponse<T> = await axios.request<T>(options);
-      setData(response.data);
+      const response = await axios.request(options);
+      setData(response.data.data);
       setIsLoading(false);
-    } catch (error: any) {
-      setError(error);
-      alert('There is an error');
+    } catch (err: any) {
+      console.log('data', data);
+      setError(err);
     } finally {
       setIsLoading(false);
     }
@@ -41,7 +39,7 @@ const useFetch = <T,>(
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, []); // Added dependencies to useEffect
 
   const refetch = () => {
     setIsLoading(true);
