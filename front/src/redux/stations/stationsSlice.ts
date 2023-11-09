@@ -57,7 +57,6 @@ const transformData = (arg: string, filter: string, data: Station[]) => {
   stations.sort((a: Station, b: Station) => {
     return a.name.localeCompare(b.name);
   });
-  console.log('stations ', stations);
   switch (filter) {
     case 'Mechanical Bikes':
       stations = stations.filter(

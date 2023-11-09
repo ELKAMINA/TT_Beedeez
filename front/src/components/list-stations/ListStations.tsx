@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {View, Text, FlatList} from 'react-native';
 import styles from './listStations.style';
 import {StationsCard} from '../common/stations/StationsCard';
@@ -7,7 +7,6 @@ import {
   FetchAllStations,
   selectIsLoaded,
   selectArgSearch,
-  resetArg,
   selectArgFilter,
 } from '../../redux/stations/stationsSlice';
 
@@ -20,21 +19,27 @@ const ListStations = () => {
   const filterTerm = useAppSelector(selectArgFilter);
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      dispatch(FetchAllStations(searchTerm, filterTerm));
+    }, 120000);
+
     dispatch(FetchAllStations(searchTerm, filterTerm));
+    return () => clearInterval(timer);
   }, [isLoaded, searchTerm, dispatch, filterTerm]);
 
   const data = useAppSelector(selectStations);
+  const memoizedData = useMemo(() => data, [data]);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Stations</Text>
       </View>
       <View style={styles.cardsContainer}>
-        {data.length === 0 ? (
+        {memoizedData.length === 0 ? (
           <Text>No data found... </Text>
         ) : (
           <FlatList
-            data={data}
+            data={memoizedData}
             renderItem={({item}) => (
               <View style={styles.container}>
                 <StationsCard station={item} key={item._id} />
