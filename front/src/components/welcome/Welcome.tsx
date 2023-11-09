@@ -13,7 +13,7 @@ import {SIZES, COLORS, FONT} from '../../constants';
 import {useAppSelector} from '../../redux/hooks';
 import {selectCurrentUser} from '../../redux/auth/authSlice';
 import {icons} from '../../constants';
-import {setArgSearch} from '../../redux/stations/stationsSlice';
+import {setArgSearch, setArgFilter} from '../../redux/stations/stationsSlice';
 
 const bikeAvailability: string[] = [
   'Mechanical Bikes',
@@ -61,6 +61,7 @@ export const Welcome = () => {
               style={getTabStyle(activeButton, item)}
               onPress={() => {
                 setActiveButton(item);
+                dispatch(setArgFilter(item));
               }}>
               <Text style={getTabTextStyle(activeButton, item)}>{item}</Text>
             </TouchableOpacity>

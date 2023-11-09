@@ -8,6 +8,7 @@ import {
   selectIsLoaded,
   selectArgSearch,
   resetArg,
+  selectArgFilter,
 } from '../../redux/stations/stationsSlice';
 
 import {useAppDispatch, useAppSelector} from '../../redux/hooks';
@@ -16,10 +17,11 @@ const ListStations = () => {
   const isLoaded = useAppSelector(selectIsLoaded);
   const dispatch = useAppDispatch();
   const searchTerm = useAppSelector(selectArgSearch);
+  const filterTerm = useAppSelector(selectArgFilter);
 
   useEffect(() => {
-    dispatch(FetchAllStations(searchTerm));
-  }, [isLoaded, searchTerm, dispatch]);
+    dispatch(FetchAllStations(searchTerm, filterTerm));
+  }, [isLoaded, searchTerm, dispatch, filterTerm]);
 
   const data = useAppSelector(selectStations);
   return (
