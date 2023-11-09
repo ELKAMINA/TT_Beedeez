@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
     fontFamily: FONT.bold,
     marginBottom: '20%',
   },
+  errorText: {
+    color: 'red',
+    fontSize: SIZES.medium,
+    fontFamily: FONT.regular,
+  },
   contentBox: {
     marginVertical: SIZES.small,
   },

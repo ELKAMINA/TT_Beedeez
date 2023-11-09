@@ -18,6 +18,7 @@ type AuthProps = {
 export const Auth: React.FC<AuthProps> = ({authMode}) => {
   const [email, setMail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
 
@@ -36,7 +37,12 @@ export const Auth: React.FC<AuthProps> = ({authMode}) => {
         dispatch(setId(res.data.data._id));
         navigation.navigate(SCREENS.MAIN as never);
       })
-      .catch(e => console.error(e));
+      .catch(e => {
+        console.error(e);
+        if (e.response.data.message) {
+          setError(e.response.data.message);
+        }
+      });
   };
 
   const handleSwitch = () => {
@@ -72,6 +78,11 @@ export const Auth: React.FC<AuthProps> = ({authMode}) => {
           style={styles.searchInput}
         />
       </View>
+      {error ? (
+        <View style={styles.searchContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+      ) : null}
       <TouchableOpacity style={styles.submitBtn} onPress={handleAuth}>
         <Text>{authMode}</Text>
       </TouchableOpacity>
