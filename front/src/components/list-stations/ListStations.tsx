@@ -18,6 +18,7 @@ const ListStations = () => {
   }, []);
 
   const data = useAppSelector(selectStations);
+  console.log('une station ', data[0]);
   useEffect(() => {}, [isLoaded]);
   return (
     <View style={styles.container}>
@@ -31,10 +32,13 @@ const ListStations = () => {
           <FlatList
             data={data}
             renderItem={({item}) => (
-              <StationsCard station={item} key={item._id} />
+              <View style={styles.container}>
+                <StationsCard station={item} key={item._id} />
+              </View>
             )}
             keyExtractor={item => item._id}
-            contentContainerStyle={styles.cardsContainer}
+            numColumns={3}
+            collapsable={false}
           />
         )}
       </View>

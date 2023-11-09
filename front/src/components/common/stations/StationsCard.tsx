@@ -12,8 +12,9 @@ export const StationsCard: React.FC<Props> = ({station}) => {
     <TouchableOpacity style={styles.container}>
       <View style={styles.textContainer}>
         <Text style={styles.stationName}>{station.name}</Text>
-        <Text style={styles.stationName} numberOfLines={1} />
-        {station.numBikesAvailable}
+        <Text style={styles.stationName} numberOfLines={1}>
+          Total bikes available : {station.numBikesAvailable}
+        </Text>
         <Text style={styles.stationType}>
           {' '}
           Last update : {String(station.updatedAt)}
