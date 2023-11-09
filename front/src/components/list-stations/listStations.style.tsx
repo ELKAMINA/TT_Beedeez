@@ -5,11 +5,9 @@ import {COLORS, FONT, SIZES} from '../../constants';
 const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.xLarge,
-    flexDirection: 'column',
-    // backgroundColor: COLORS.tertiary,
+    backgroundColor: COLORS.tertiary,
   },
   header: {
-    flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: SIZES.small,
@@ -26,11 +24,11 @@ const styles = StyleSheet.create({
   },
   cardsContainer: {
     marginTop: SIZES.medium,
-    gap: SIZES.small,
+    gap: SIZES.medium,
+    justifyContent: 'space-around',
+    backgroundColor: COLORS.gray,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    backgroundColor: COLORS.tertiary,
   },
 });
 

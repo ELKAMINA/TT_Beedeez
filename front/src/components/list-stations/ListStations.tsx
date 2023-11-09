@@ -8,7 +8,6 @@ import {
   selectIsLoaded,
 } from '../../redux/stations/stationsSlice';
 
-import {Station} from './interface/station.interface';
 import {useAppDispatch, useAppSelector} from '../../redux/hooks';
 
 const ListStations = () => {
@@ -18,9 +17,8 @@ const ListStations = () => {
     dispatch(FetchAllStations());
   }, []);
 
-  useEffect(() => {}, [isLoaded]);
-
   const data = useAppSelector(selectStations);
+  useEffect(() => {}, [isLoaded]);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -36,6 +34,7 @@ const ListStations = () => {
               <StationsCard station={item} key={item._id} />
             )}
             keyExtractor={item => item._id}
+            contentContainerStyle={styles.cardsContainer}
           />
         )}
       </View>

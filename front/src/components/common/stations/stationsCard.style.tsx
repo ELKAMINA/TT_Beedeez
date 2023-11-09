@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
-    width: '40%',
-    height: '5%',
+    width: '25vw',
+    height: '60vh',
   },
   logoContainer: {
     width: 50,
@@ -29,13 +29,13 @@ const styles = StyleSheet.create({
     height: '70%',
   },
   textContainer: {
-    // flex: 1,
+    flex: 1,
     marginHorizontal: SIZES.medium,
   },
   stationName: {
-    fontSize: SIZES.medium,
+    fontSize: SIZES.xLarge,
     fontFamily: 'DMBold',
-    color: COLORS.primary,
+    color: COLORS.tertiary,
   },
   stationType: {
     fontSize: SIZES.small + 2,
