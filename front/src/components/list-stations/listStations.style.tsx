@@ -5,7 +5,7 @@ import {COLORS, FONT, SIZES} from '../../constants';
 const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.xLarge,
-    backgroundColor: COLORS.primary,
+    // backgroundColor: COLORS.primary,
     flexWrap: 'wrap',
     marginRight: SIZES.medium,
     alignItems: 'center',
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   cardsContainer: {
     marginTop: SIZES.medium,
     gap: SIZES.medium,
-    backgroundColor: COLORS.gray,
+    // backgroundColor: COLORS.gray,
     height: '100vh',
   },
 });

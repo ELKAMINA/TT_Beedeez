@@ -1,3 +1,4 @@
+import {StationsRoute} from '@routes/stations.route';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../store';
 import {Station} from '../../components/list-stations/interface/station.interface';
@@ -38,7 +39,11 @@ export function FetchAllStations() {
     await axios
       .get('http://localhost:3000/stations')
       .then(res => {
-        dispatch(getStations(res.data.data));
+        const data = res.data.data;
+        data.sort((a: Station, b: Station) => {
+          return a.name.localeCompare(b.name);
+        });
+        dispatch(getStations(data));
         dispatch(setIsLoaded(true));
       })
       .catch(e => {

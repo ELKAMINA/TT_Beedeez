@@ -18,7 +18,6 @@ const ListStations = () => {
   }, []);
 
   const data = useAppSelector(selectStations);
-  console.log('une station ', data[0]);
   useEffect(() => {}, [isLoaded]);
   return (
     <View style={styles.container}>
