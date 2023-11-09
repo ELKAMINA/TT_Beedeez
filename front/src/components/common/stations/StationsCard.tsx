@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './stationsCard.style';
 import {Station} from '../../list-stations/interface/station.interface';
 import {TouchableOpacity, Text, View} from 'react-native';
+import {formatDate} from '../../../utils/formattingDate';
 
 interface Props {
   station: Station;
@@ -16,12 +17,12 @@ export const StationsCard: React.FC<Props> = ({station}) => {
           Total bikes available : {station.numBikesAvailable}
         </Text>
         <Text style={styles.stationType}>
-          {' '}
-          Last update : {String(station.updatedAt)}
+          Mechanical Bikes :
+          {station.num_bikes_available_types.at(0)?.mechanical} | eBikes :
+          {station.num_bikes_available_types.at(1)?.ebike}
         </Text>
         <Text style={styles.stationType}>
-          {' '}
-          Type : {station.num_bikes_available_types.at(0)?.mechanical}
+          Last update : {formatDate(station.updatedAt)}
         </Text>
       </View>
     </TouchableOpacity>

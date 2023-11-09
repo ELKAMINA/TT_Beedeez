@@ -4,7 +4,7 @@ import {COLORS, FONT, SIZES} from '../../constants';
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '40%',
   },
   userName: {
     fontFamily: FONT.regular,
@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT.bold,
     fontSize: SIZES.xLarge,
     color: COLORS.primary,
+    marginBottom: SIZES.small,
     marginTop: 2,
   },
   searchContainer: {
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: SIZES.large,
     height: 50,
+    width: '30vw',
   },
   searchWrapper: {
     flex: 1,
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
   },
   tabsContainer: {
     width: '100%',
-    marginTop: SIZES.medium,
+    margin: SIZES.small,
   },
 });
 

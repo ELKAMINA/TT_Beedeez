@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
-    width: '25vw',
+    width: '30vw',
     height: '15vh',
   },
   logoContainer: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logImage: {
-    width: '70%',
+    width: '80%',
     height: '70%',
   },
   textContainer: {

@@ -6,6 +6,8 @@ import {
   selectStations,
   FetchAllStations,
   selectIsLoaded,
+  selectArgSearch,
+  resetArg,
 } from '../../redux/stations/stationsSlice';
 
 import {useAppDispatch, useAppSelector} from '../../redux/hooks';
@@ -13,12 +15,13 @@ import {useAppDispatch, useAppSelector} from '../../redux/hooks';
 const ListStations = () => {
   const isLoaded = useAppSelector(selectIsLoaded);
   const dispatch = useAppDispatch();
+  const searchTerm = useAppSelector(selectArgSearch);
+
   useEffect(() => {
-    dispatch(FetchAllStations());
-  }, []);
+    dispatch(FetchAllStations(searchTerm));
+  }, [isLoaded, searchTerm, dispatch]);
 
   const data = useAppSelector(selectStations);
-  useEffect(() => {}, [isLoaded]);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -26,7 +29,7 @@ const ListStations = () => {
       </View>
       <View style={styles.cardsContainer}>
         {data.length === 0 ? (
-          <Text>Waiting for your data to load ... </Text>
+          <Text>No data found... </Text>
         ) : (
           <FlatList
             data={data}
