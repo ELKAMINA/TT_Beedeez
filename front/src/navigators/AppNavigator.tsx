@@ -10,11 +10,17 @@ const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
   return (
-    <Stack.Navigator initialRouteName={SCREENS.SIGNUP}>
-      <Stack.Screen name={SCREENS.SIGNUP} options={{title: 'Sign up'}}>
+    <Stack.Navigator
+      initialRouteName={SCREENS.SIGNUP}
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name={SCREENS.SIGNUP}
+        options={{title: 'Sign up', headerShown: false}}>
         {() => <Auth authMode="Sign up" />}
       </Stack.Screen>
-      <Stack.Screen name={SCREENS.SIGNIN} options={{title: 'Sign in'}}>
+      <Stack.Screen
+        name={SCREENS.SIGNIN}
+        options={{title: 'Sign in', headerShown: false}}>
         {() => <Auth authMode="Sign in" />}
       </Stack.Screen>
       <Stack.Screen name={SCREENS.MAIN} component={Main} />
@@ -26,7 +32,9 @@ const linking = {
   prefixes: [],
   config: {
     screens: {
-      [SCREENS.LOGIN]: 'login',
+      [SCREENS.SIGNUP]: 'signup',
+      [SCREENS.SIGNIN]: 'signin',
+      [SCREENS.MAIN]: 'main',
     },
   },
 };

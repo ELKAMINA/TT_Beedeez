@@ -39,7 +39,7 @@ const useFetch = (endpoint: string, query: QueryParams): UseFetchReturnType => {
 
   useEffect(() => {
     fetchData();
-  }, []); // Added dependencies to useEffect
+  }, []);
 
   const refetch = () => {
     setIsLoading(true);
