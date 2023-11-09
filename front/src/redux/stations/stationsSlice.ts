@@ -34,14 +34,20 @@ const stationsSlice = createSlice({
     setArgFilter: (state, action: PayloadAction<string>) => {
       state.argFilter = action.payload;
     },
-    resetArg: state => {
-      state.argSearch = '';
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    resetStations: state => {
+      return initialState;
     },
   },
 });
 
-export const {setIsLoaded, getStations, setArgSearch, setArgFilter, resetArg} =
-  stationsSlice.actions;
+export const {
+  setIsLoaded,
+  getStations,
+  setArgSearch,
+  setArgFilter,
+  resetStations,
+} = stationsSlice.actions;
 
 export const selectStations = (state: RootState) =>
   state.persistedReducer.stations.data;
@@ -101,44 +107,6 @@ export function FetchAllStations(arg: string, filter: string) {
       .then(res => {
         let data = res.data.data;
         data = transformData(arg, filter, data);
-        // data.sort((a: Station, b: Station: Station) => {
-        //   return a.name.localeCompare(b.name);
-        // });
-        // switch (filter) {
-        //   case 'Mechanical Bikes':
-        //     data = data.filter(
-        //       (station: Station) =>
-        //         station.num_bikes_available_types?.at(0)?.mechanical ?? false
-        //     );
-        //     break;
-        //     case 'eBikes':
-        //       data = data.filter(
-        //         (station: Station) =>
-        //           station.num_bikes_available_types?.at(1)?.ebike ?? false
-        //       );
-        //       break;
-        //     case 'Both mechanical and eBikes' :
-        //       data = data.filter(
-        //         (station: Station) =>
-        //           station.num_bikes_available_types?.at(0)?.mechanical ?? false &&
-        //           station.num_bikes_available_types?.at(1)?.ebike ?? false
-        //       );
-        //       break;
-        //     case 'Busy' :
-        //       data = data.filter(
-        //         (station: Station) =>
-        //           station.numBikesAvailable === 0
-        //       );
-        //       break;
-        //     case 'default' :
-        //       break;
-        // }
-        // if (arg) {
-        //   data = data.filter((station: Station) =>
-        //     station.name.toLowerCase().includes(arg.toLowerCase())
-        //     station.name.toLowerCase().includes(arg.toLowerCase()),
-        //   );
-        // }
         dispatch(getStations(data));
         dispatch(setIsLoaded(true));
       })

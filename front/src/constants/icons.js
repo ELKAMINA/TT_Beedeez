@@ -8,6 +8,8 @@ import share from '../assets/icons/share.png';
 import location from '../assets/icons/location.png';
 import chevronLeft from '../assets/icons/chevron-left.png';
 import chevronRight from '../assets/icons/chevron-right.png';
+import woman from '../assets/icons/woman.png';
+import logout from '../assets/icons/logout.png';
 
 export default {
   heart,
@@ -20,4 +22,6 @@ export default {
   location,
   chevronLeft,
   chevronRight,
+  woman,
+  logout,
 };

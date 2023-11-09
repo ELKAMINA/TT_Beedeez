@@ -1,7 +1,12 @@
 import React, {useState} from 'react';
 import {TextInput, TouchableOpacity, View, Text} from 'react-native';
 import axios from 'axios';
-import {setEmail, setJwtTokens, setId} from '../../redux/auth/authSlice';
+import {
+  setEmail,
+  setJwtTokens,
+  setId,
+  setPwd,
+} from '../../redux/auth/authSlice';
 import styles from './auth.styles';
 import {useAppDispatch} from '../../redux/hooks';
 import {useNavigation} from '@react-navigation/native';
@@ -19,14 +24,16 @@ export const Auth: React.FC<AuthProps> = ({authMode}) => {
   const handleAuth = async () => {
     const endpoint = authMode === 'Sign up' ? 'signup' : 'login';
     dispatch(setEmail(email));
+    dispatch(setPwd(password));
     await axios
       .post(`http://localhost:3000/${endpoint}`, {
         email: email,
         password: password,
       })
       .then(res => {
-        setJwtTokens(res.data.authToken);
-        setId(res.data.data.id);
+        console.log('res ', res.data.data._id);
+        dispatch(setJwtTokens(res.data.authToken.token));
+        dispatch(setId(res.data.data._id));
         navigation.navigate(SCREENS.MAIN as never);
       })
       .catch(e => console.error(e));

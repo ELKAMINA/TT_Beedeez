@@ -32,9 +32,9 @@ const linking = {
   prefixes: [],
   config: {
     screens: {
-      [SCREENS.SIGNUP]: 'signup',
-      [SCREENS.SIGNIN]: 'signin',
-      [SCREENS.MAIN]: 'main',
+      [SCREENS.SIGNUP]: 'Sign up',
+      [SCREENS.SIGNIN]: 'Sign in',
+      [SCREENS.MAIN]: 'Main',
     },
   },
 };
