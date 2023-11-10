@@ -1,4 +1,4 @@
-import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const COLORS = {
   primary: '#312651',

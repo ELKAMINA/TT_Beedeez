@@ -6,7 +6,7 @@ import axios, {AxiosRequestConfig, AxiosResponse, AxiosError} from 'axios';
 type QueryParams = Record<string, any>;
 
 interface UseFetchReturnType {
-  data: Station[]; // The data is always an array of Station
+  data: Station[];
   isLoading: boolean;
   error: AxiosError | null;
   refetch: () => void;

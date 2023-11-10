@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native';
 
 import {COLORS, FONT, SIZES} from '../../constants';
-import {RFValue} from 'react-native-responsive-fontsize';
 
 const styles = StyleSheet.create({
   cardDetails: {
@@ -28,8 +27,9 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderRadius: SIZES.small,
     padding: SIZES.small,
-    margin: SIZES.xSmall,
-    minWidth: '80%',
+    marginTop: SIZES.xSmall,
+    marginBottom: SIZES.xSmall,
+    minWidth: '50%',
     maxWidth: '100%',
     alignItems: 'center',
     alignContent: 'center',
