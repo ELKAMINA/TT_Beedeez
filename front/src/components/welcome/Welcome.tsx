@@ -49,7 +49,7 @@ export const Welcome = () => {
   const user = useAppSelector(selectCurrentUser);
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.userName}>Hello {user}</Text>
+      <Text style={styles.userName}>Hello {user.split('@')[0]}</Text>
       <Text style={styles.welcomeMessage}>
         Get WHAT you want, WHERE you want
       </Text>
