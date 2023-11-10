@@ -1,3 +1,5 @@
+import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+
 const COLORS = {
   primary: '#312651',
   secondary: '#444262',
@@ -17,12 +19,12 @@ const FONT = {
 };
 
 const SIZES = {
-  xSmall: 10,
-  small: 12,
-  medium: 16,
-  large: 20,
-  xLarge: 24,
-  xxLarge: 32,
+  xSmall: RFValue(4),
+  small: RFValue(6),
+  medium: RFValue(8),
+  large: RFValue(12),
+  xLarge: RFValue(20),
+  xxLarge: RFValue(32),
 };
 
 const SHADOWS = {

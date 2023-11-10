@@ -1,16 +1,22 @@
 import {StyleSheet} from 'react-native';
 
 import {COLORS, FONT, SIZES} from '../../constants';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const styles = StyleSheet.create({
+  wholeBody: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255,119,84,0.9)',
+  },
   container: {
-    marginTop: '5%',
-    marginLeft: '15%',
-    backgroundColor: '#FFF',
+    backgroundColor: COLORS.lightWhite,
     borderRadius: SIZES.medium,
     padding: SIZES.medium,
-    height: '70%',
-    width: '70%',
+    height: '65%',
+    width: '40%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -19,21 +25,36 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     marginTop: SIZES.large,
-    height: 50,
+    height: '6%',
     width: '50%',
-    backgroundColor: '#fafafa',
+  },
+  switchContainer: {
+    alignItems: 'center',
+    textAlign: 'center',
+    flexDirection: 'row',
+    height: '8%',
+    width: '50%',
+    justifyContent: 'flex-start',
   },
   headText: {
-    fontSize: SIZES.xxLarge,
-    color: COLORS.primary,
+    fontSize: RFValue(20),
+    alignContent: 'center',
     fontFamily: FONT.bold,
-    marginBottom: '20%',
+    fontWeight: 'bold',
+    color: COLORS.primary,
+    marginBottom: '8%',
   },
   normalText: {
-    fontSize: SIZES.xxLarge,
+    fontSize: RFValue(20),
     color: COLORS.tertiary,
     fontFamily: FONT.bold,
-    marginBottom: '20%',
+    marginBottom: '8%',
+  },
+  smallText: {
+    fontSize: SIZES.medium,
+    color: COLORS.primary,
+    fontFamily: FONT.bold,
+    marginRight: '2%',
   },
   errorText: {
     color: 'red',
@@ -41,28 +62,38 @@ const styles = StyleSheet.create({
     fontFamily: FONT.regular,
   },
   contentBox: {
-    marginVertical: SIZES.small,
+    alignItems: 'center',
   },
   contextText: {
-    fontSize: SIZES.medium - 2,
+    fontSize: SIZES.medium,
     color: COLORS.gray,
     fontFamily: FONT.regular,
-    marginVertical: SIZES.small / 1.25,
+    marginVertical: SIZES.small,
   },
   searchInput: {
     fontFamily: FONT.regular,
+    fontSize: SIZES.medium,
     width: '100%',
     height: '100%',
-    paddingHorizontal: SIZES.medium,
+    paddingHorizontal: SIZES.small,
+    paddingVertical: SIZES.medium * 1.25,
+    marginBottom: SIZES.small,
+    borderRadius: SIZES.small,
   },
   submitBtn: {
     width: '50%',
     height: 50,
     marginTop: 20,
     backgroundColor: COLORS.tertiary,
-    borderRadius: SIZES.medium,
+    borderRadius: SIZES.small,
     justifyContent: 'center',
     alignItems: 'center',
+    fontSize: SIZES.medium,
+  },
+  underlineBtn: {
+    textDecorationLine: 'underline',
+    fontSize: SIZES.medium,
+    color: COLORS.primary,
   },
 });
 

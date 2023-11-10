@@ -11,16 +11,18 @@ import styles from './auth.styles';
 import {useAppDispatch} from '../../redux/hooks';
 import {useNavigation} from '@react-navigation/native';
 import {SCREENS} from '../../navigators/screens';
+import LinearGradient from 'react-native-linear-gradient';
+
 type AuthProps = {
   authMode: 'Sign in' | 'Sign up';
 };
 
 export const Auth: React.FC<AuthProps> = ({authMode}) => {
-  const [email, setMail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigation = useNavigation();
   const dispatch = useAppDispatch();
+  const navigation = useNavigation();
+  const [email, setMail] = useState('');
+  const [error, setError] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleAuth = async () => {
     const endpoint = authMode === 'Sign up' ? 'signup' : 'login';
@@ -54,41 +56,53 @@ export const Auth: React.FC<AuthProps> = ({authMode}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.contentBox}>
-        <Text style={styles.headText}>Welcome to Find my bike</Text>
-        <Text style={styles.normalText}>Let's {authMode}</Text>
-      </View>
-      <View style={styles.searchContainer}>
-        <TextInput
-          autoFocus
-          value={email}
-          onChangeText={text => setMail(text)}
-          style={styles.searchInput}
-          keyboardType="default"
-        />
-      </View>
-      <View style={styles.searchContainer}>
-        <TextInput
-          autoFocus
-          placeholder="Password"
-          value={password}
-          secureTextEntry
-          onChangeText={text => setPassword(text)}
-          style={styles.searchInput}
-        />
-      </View>
-      {error ? (
-        <View style={styles.searchContainer}>
-          <Text style={styles.errorText}>{error}</Text>
+    <View style={styles.wholeBody}>
+      <View style={styles.container}>
+        <View style={styles.contentBox}>
+          <Text style={styles.headText}>Welcome to Find my bike</Text>
+          <Text style={styles.normalText}>Let's {authMode}</Text>
         </View>
-      ) : null}
-      <TouchableOpacity style={styles.submitBtn} onPress={handleAuth}>
-        <Text>{authMode}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.submitBtn} onPress={handleSwitch}>
-        <Text>{authMode === 'Sign up' ? 'Sign in' : 'Sign up'}</Text>
-      </TouchableOpacity>
+        <View style={styles.searchContainer}>
+          <TextInput
+            autoFocus
+            value={email}
+            onChangeText={text => setMail(text)}
+            style={styles.searchInput}
+            keyboardType="default"
+          />
+        </View>
+        <View style={styles.searchContainer}>
+          <TextInput
+            autoFocus
+            placeholder="Password"
+            value={password}
+            secureTextEntry
+            onChangeText={text => setPassword(text)}
+            style={styles.searchInput}
+          />
+        </View>
+        {error ? (
+          <View style={styles.searchContainer}>
+            <Text style={styles.errorText}>{error}</Text>
+          </View>
+        ) : null}
+        <TouchableOpacity style={styles.submitBtn} onPress={handleAuth}>
+          <Text style={styles.smallText}>{authMode}</Text>
+        </TouchableOpacity>
+        <View style={styles.switchContainer}>
+          <Text style={styles.smallText}>
+            {authMode === 'Sign up'
+              ? 'Already have an account ?'
+              : "Don't have an account ?"}
+          </Text>
+          <TouchableOpacity onPress={handleSwitch}>
+            <Text style={styles.underlineBtn}>
+              {' '}
+              {authMode === 'Sign up' ? 'Sign in' : 'Sign up'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
