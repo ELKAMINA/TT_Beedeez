@@ -4,40 +4,28 @@ import {COLORS, SHADOWS, SIZES} from '../../../constants';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: SIZES.medium,
+    margin: SIZES.small,
+    padding: SIZES.small,
     borderRadius: SIZES.small,
     backgroundColor: '#FFF',
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
     width: '20vw',
-    height: '15vh',
-  },
-  logoContainer: {
-    width: 50,
-    height: 50,
-    backgroundColor: COLORS.white,
-    borderRadius: SIZES.medium,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  logImage: {
-    width: '80%',
-    height: '70%',
+    height: '25vh',
   },
   textContainer: {
     flex: 1,
-    marginHorizontal: SIZES.medium,
+    justifyContent: 'space-around',
   },
   stationName: {
-    fontSize: SIZES.xLarge,
+    fontSize: SIZES.large,
     fontFamily: 'DMBold',
     color: COLORS.tertiary,
+    alignSelf: 'center',
   },
   stationType: {
-    fontSize: SIZES.small + 2,
+    fontSize: SIZES.small,
     fontFamily: 'DMRegular',
     color: COLORS.gray,
     marginTop: 3,

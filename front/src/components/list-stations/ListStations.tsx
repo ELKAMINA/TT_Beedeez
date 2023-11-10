@@ -31,7 +31,7 @@ const ListStations = () => {
   const memoizedData = useMemo(() => data, [data]);
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <View>
         <Text style={styles.headerTitle}>Stations</Text>
       </View>
       <View style={styles.cardsContainer}>
@@ -41,13 +41,12 @@ const ListStations = () => {
           <FlatList
             data={memoizedData}
             renderItem={({item}) => (
-              <View style={styles.container}>
-                <StationsCard station={item} key={item._id} />
-              </View>
+              <StationsCard station={item} key={item._id} />
             )}
             keyExtractor={item => item._id}
             numColumns={3}
             collapsable={false}
+            contentContainerStyle={styles.flatlistContainer}
           />
         )}
       </View>
