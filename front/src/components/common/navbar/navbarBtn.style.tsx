@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   btnContainer: {
     flexDirection: 'row',
     width: '100%',
-    height: '5%',
+    height: 75,
     backgroundColor: COLORS.tertiary,
     borderRadius: 0.5,
     justifyContent: 'space-around',

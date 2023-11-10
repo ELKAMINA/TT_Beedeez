@@ -9,6 +9,7 @@ interface stationsState {
   isLoaded: boolean;
   argSearch: string;
   argFilter: string;
+  selectedStation?: Station;
 }
 
 const initialState: stationsState = {
@@ -16,6 +17,7 @@ const initialState: stationsState = {
   isLoaded: false,
   argSearch: '',
   argFilter: '',
+  selectedStation: undefined,
 };
 
 const stationsSlice = createSlice({
@@ -34,6 +36,9 @@ const stationsSlice = createSlice({
     setArgFilter: (state, action: PayloadAction<string>) => {
       state.argFilter = action.payload;
     },
+    setSelectedStation: (state, action: PayloadAction<Station>) => {
+      state.selectedStation = action.payload;
+    },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     resetStations: state => {
       return initialState;
@@ -46,6 +51,7 @@ export const {
   getStations,
   setArgSearch,
   setArgFilter,
+  setSelectedStation,
   resetStations,
 } = stationsSlice.actions;
 
@@ -57,6 +63,8 @@ export const selectArgSearch = (state: RootState) =>
   state.persistedReducer.stations.argSearch;
 export const selectArgFilter = (state: RootState) =>
   state.persistedReducer.stations.argFilter;
+export const selectSelectedStation = (state: RootState) =>
+  state.persistedReducer.stations.selectedStation;
 
 const transformData = (arg: string, filter: string, data: Station[]) => {
   let stations = data;

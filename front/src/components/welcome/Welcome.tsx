@@ -84,7 +84,6 @@ export const Welcome = () => {
           )}
           keyExtractor={item => item}
           horizontal
-          collapsable={true}
           ItemSeparatorComponent={() => <View style={styles.tabsContainer} />}
         />
       </View>
