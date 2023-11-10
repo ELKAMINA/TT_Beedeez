@@ -32,7 +32,7 @@ const getTabStyle = (activeButton: string, item: string) => ({
 });
 
 const getTabTextStyle = (activeButton: string, item: string) => ({
-  fontFamily: FONT.medium,
+  fontFamily: FONT.regular,
   color: activeButton === item ? COLORS.secondary : COLORS.gray2,
 });
 
@@ -48,10 +48,26 @@ export const Welcome = () => {
 
   const user = useAppSelector(selectCurrentUser);
   return (
-    <View>
-      <View style={styles.container}>
-        <Text style={styles.userName}>Hello {user}</Text>
-        <Text style={styles.welcomeMessage}>Get your bike where you want</Text>
+    <View style={styles.wrapper}>
+      <Text style={styles.userName}>Hello {user}</Text>
+      <Text style={styles.welcomeMessage}>
+        Get WHAT you want, WHERE you want
+      </Text>
+
+      <View style={styles.searchContainer}>
+        <TextInput
+          style={styles.searchInput}
+          value={searchTerm}
+          onChangeText={(text: string) => setSearchTerm(text)}
+          placeholder="What are you looking for?"
+        />
+        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
+          <Image
+            source={icons.search}
+            resizeMode="contain"
+            style={styles.searchBtnImage}
+          />
+        </TouchableOpacity>
       </View>
       <View>
         <FlatList
@@ -71,24 +87,6 @@ export const Welcome = () => {
           collapsable={true}
           ItemSeparatorComponent={() => <View style={styles.tabsContainer} />}
         />
-      </View>
-      <View style={styles.searchContainer}>
-        <View style={styles.searchWrapper}>
-          <TextInput
-            style={styles.searchInput}
-            value={searchTerm}
-            onChangeText={(text: string) => setSearchTerm(text)}
-            placeholder="What are you looking for?"
-          />
-        </View>
-
-        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
-          <Image
-            source={icons.search}
-            resizeMode="contain"
-            style={styles.searchBtnImage}
-          />
-        </TouchableOpacity>
       </View>
     </View>
   );

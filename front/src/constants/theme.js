@@ -24,7 +24,7 @@ const SIZES = {
   medium: RFValue(8),
   large: RFValue(12),
   xLarge: RFValue(20),
-  xxLarge: RFValue(32),
+  xxLarge: RFValue(25),
 };
 
 const SHADOWS = {
