@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.small,
     alignSelf: 'center',
     marginVertical: '6%',
-    padding: SIZES.medium,
+    padding: SIZES.small,
     alignItems: 'center',
     justifyContent: 'space-around',
     flexDirection: 'column',
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignContent: 'center',
     justifyContent: 'center',
+    fontSize: SIZES.medium,
   },
   textContainer: {
     width: '20%',
