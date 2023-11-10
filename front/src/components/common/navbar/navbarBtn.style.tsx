@@ -14,11 +14,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
   },
   btnImg: {
-    width: SIZES.xxLarge,
-    height: SIZES.xxLarge,
+    width: SIZES.xLarge,
+    height: SIZES.xLarge,
     borderRadius: SIZES.small / 1.25,
-    backgroundColor: COLORS.white,
-    margin: SIZES.small,
+    margin: SIZES.large,
   },
   nameLogo: {
     flexDirection: 'row',

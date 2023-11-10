@@ -37,7 +37,7 @@ export const Navbar = () => {
           Authorization: 'Bearer ' + token,
         },
       })
-      .then(res => {
+      .then(() => {
         dispatch(resetStations());
         dispatch(resetAuth());
         navigation.navigate(SCREENS.SIGNUP as never);
