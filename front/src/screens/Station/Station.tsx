@@ -48,65 +48,63 @@ export const StationDetails: React.FC<StationDetailsProps> = ({route}) => {
         />
       </TouchableOpacity>
       <Text>Go back</Text>
+      <View>
+        <Text style={styles.headText}>{station?.name}</Text>
+      </View>
       <View style={styles.cardDetails}>
-        <View>
-          <Text style={styles.headText}>{station?.name}</Text>
+        <View style={styles.infoBox}>
+          <Text>
+            <Text style={{fontWeight: 'bold'}}>Latitude:</Text>
+            {' ' + station?.lat}
+          </Text>
         </View>
-        <View style={styles.rowCards}>
-          <View style={styles.infoBox}>
-            <Text>
-              <Text style={{fontWeight: 'bold'}}>Latitude:</Text>
-              {' ' + station?.lat}
-            </Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text>
-              <Text style={{fontWeight: 'bold'}}>Longitude:</Text>
-              {' ' + station?.lon}
-            </Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text>
-              <Text style={{fontWeight: 'bold'}}>Station code:</Text>
-              {' ' + station?.stationCode}
-            </Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text>
-              <Text style={{fontWeight: 'bold'}}>Docks available:</Text>
-              {' ' + station?.numDocksAvailable}
-            </Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text>
-              <Text style={{fontWeight: 'bold'}}>Capacity:</Text>
-              {' ' + station?.capacity}
-            </Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text>
-              <Text style={{fontWeight: 'bold'}}>Creation date:</Text>
-              {' ' + station?.createdAt}
-            </Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text numberOfLines={1}>
-              <Text style={{fontWeight: 'bold'}}>Total bikes available:</Text>
-              {' ' + station?.numBikesAvailable}
-            </Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text>
-              <Text style={{fontWeight: 'bold'}}>Mechanical Bikes:</Text>
-              {' ' + station?.num_bikes_available_types.at(0)?.mechanical}
-            </Text>
-          </View>
-          <View style={styles.infoBox}>
-            <Text>
-              <Text style={{fontWeight: 'bold'}}>eBikes:</Text>
-              {' ' + station?.num_bikes_available_types.at(1)?.ebike}
-            </Text>
-          </View>
+        <View style={styles.infoBox}>
+          <Text>
+            <Text style={{fontWeight: 'bold'}}>Longitude:</Text>
+            {' ' + station?.lon}
+          </Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text>
+            <Text style={{fontWeight: 'bold'}}>Station code:</Text>
+            {' ' + station?.stationCode}
+          </Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text>
+            <Text style={{fontWeight: 'bold'}}>Docks available:</Text>
+            {' ' + station?.numDocksAvailable}
+          </Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text>
+            <Text style={{fontWeight: 'bold'}}>Capacity:</Text>
+            {' ' + station?.capacity}
+          </Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text>
+            <Text style={{fontWeight: 'bold'}}>Creation date:</Text>
+            {' ' + station?.createdAt}
+          </Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text numberOfLines={1}>
+            <Text style={{fontWeight: 'bold'}}>Total bikes available:</Text>
+            {' ' + station?.numBikesAvailable}
+          </Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text>
+            <Text style={{fontWeight: 'bold'}}>Mechanical Bikes:</Text>
+            {' ' + station?.num_bikes_available_types.at(0)?.mechanical}
+          </Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text>
+            <Text style={{fontWeight: 'bold'}}>eBikes:</Text>
+            {' ' + station?.num_bikes_available_types.at(1)?.ebike}
+          </Text>
         </View>
       </View>
     </View>
